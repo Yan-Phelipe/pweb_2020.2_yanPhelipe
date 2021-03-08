@@ -1,2 +1,3 @@
-# pweb_2020.2_yanPhelipe
- Meu repositorio da desciplina de PWeb 2020.2
+# Repositorio de Yan Phelipe - PWeb 2020.2
+
+ Repositorio de testes para disciplina PWeb 2020.2
