@@ -1,9 +1,3 @@
-# Site Exemplo - By Xico
+# Site Exercicio 02 - by Yan Phelipe
 
-Essa pasta contém apenas imagens.
-
-Codifique o seu site a partir delas, usando HTML e CSS.
-
-Outras instruções podem ser encontradas [no repositório da disciplina](https://github.com/pwebufersa/pweb_2020.2_xicoArrruda/).
-
-Bom desempenho!
+Este site foi feito para contemplar o exercicio 2 da disciplina de PWeb 2020.2 Ufersa Angicos.
