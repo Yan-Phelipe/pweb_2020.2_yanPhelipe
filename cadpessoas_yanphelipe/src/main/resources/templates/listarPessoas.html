@@ -5,58 +5,54 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta codigoSecreto="1808538248">
-        <link rel="stylesheet" href="style/style.css">
+        <link href="@{/css/style.css}" rel="stylesheet">
         <title>Exercicio 02 - Yan Phelipe</title>
     </head>
 <body>
 	<ul>
-        <li><a href="index.html">inicio</a></li>
+        <li><a href="/">inicio</a></li>
         <hr>
-        <li><a href="noticias.html">Canais de noticias</a></li>
+        <li><a href="/public/noticias.html">Canais de noticias</a></li>
         <hr>
-        <li><a href="adicionarPessoa.html">Adicionar pessoa</a></li>
-        <li><a class="active" href="listarPessoas.html">Listar Pessoas</a></li>
+        <li><a href="/adicionarPessoa">Adicionar pessoa</a></li>
+        <li><a href="/listarPessoas" class="active">Listar Pessoas</a></li>
         <hr>
-        <li><a href="sobre.html">Sobre o site</a></li>
-        <li><a href="contato.html">Mande um e-mail</a></li>
+        <li><a href="/public/sobre.html">Sobre o site</a></li>
+        <li><a href="/public/contato.html">Mande um e-mail</a></li>
       </ul>
 
 	<div style="margin-left:25%;padding:1px 16px;height:1000px;">
 
     <h1>Lista de Pessoas Cadastradas</h1>
     <table>
-        <tr>
-            <th>Nome Completo</th>
-            <th>Data de Nascimento</th>
-            <th>E-mail</th>
-            <th>Sexo</th>
-            <th>Editar</th>
-            <th>Remover</th>
-        </tr>
-        <tr>
-            <td>Yan Phelipe</td>
-            <td>06.08.2000</td>
-            <td><a href="mailto:yanphelipe@gmail.com">yanphelipe@gmail.com</a></td>
-            <td>Masculino</td>
-            <td><a href="editarPessoa.html">Editar</a></td>
-            <td><a href="#">Remover</a></td>
-        </tr>
-        <tr>
-            <td>Joaquim dos Santos</td>
-            <td>03.10.1999</td>
-            <td><a href="mailto:joaquimmc@gmail.com">joaquimmc@gmail.com</a></td>
-            <td>Masculino</td>
-            <td><a href="editarPessoa.html">Editar</a></td>
-            <td><a href="#">Remover</a></td>
-        </tr>
-        <tr>
-            <td>Kauana Veber</td>
-            <td>10.01.2003</td>
-            <td><a href="mailto:kauanaverber@gmail.com">kauanaverber@gmail.com</a></td>
-            <td>Feminino</td>
-            <td><a href="editarPessoa.html">Editar</a></td>
-            <td><a href="#">Remover</a></td>
-        </tr>
+	    <thead>
+	        <tr>
+	        	<th>id</th>
+	            <th>Nome Completo</th>
+	            <th>Data de Nascimento</th>
+	            <th>E-mail</th>
+	            <th>Genero</th>
+	            <th>Editar</th>
+	            <th>Remover</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	    	<tr th:each="pessoa: ${pessoas}">
+	    		<td th:text="${pessoa.id}"></td>
+	    		<td th:text="${pessoa.nome}"></td>
+	    		<td>
+	    			<a tf:href="'mailto:'+${pessoa.email}"th:text="${pessoa.email}"> </a>
+	    		</td>
+	    		<td th:text="${#temporals.format(pessoa.dataNascimento,'dd/MM/yyyy')}"></td>
+	    		<td th:text="${pessoa.genero}"></td>
+	    		<td>
+	    			<a th:href="@{/editar/{id}(id=${pessoa.id}))}">Editar</a>
+	    		</td>
+	    		<td>
+	    			<a th:href="@{/remover/{id}(id=${pessoa.id}))}">Remover</a>
+	    		</td>
+	    	</tr>
+	    </tbody>
     </table>
 </body>
 </html>
